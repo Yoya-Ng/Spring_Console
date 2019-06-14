@@ -9,5 +9,6 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
     <bean id="hello" class="hello.spring.beans.HelloSpring"  scope="singleton"/>
+    <bean id="bmi" class="BMI.spring.beans.BMI"  scope="singleton"/>
     
 </beans>
