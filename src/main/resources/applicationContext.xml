@@ -10,5 +10,11 @@
 
     <bean id="hello" class="hello.spring.beans.HelloSpring"  scope="singleton"/>
     <bean id="bmi" class="BMI.spring.beans.BMI"  scope="singleton"/>
-    
+    <bean id="lotto2" class="hello.spring.beans.LottoSpring" scope="singleton">
+        <property name="count" value="10" />
+    </bean>
+    <bean id="lotto3" class="hello.spring.beans.LottoSpring" scope="singleton">
+        <constructor-arg value="50" name="x"/>
+        <constructor-arg value="50" name="y"/>
+    </bean>
 </beans>
