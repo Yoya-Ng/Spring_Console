@@ -18,5 +18,8 @@ public class Test {
         double price = stock.getQuote().getPrice().doubleValue();
         System.out.println(price);
         System.out.println(price * money);
+        
+        Stock stock2 = YahooFinance.get("2317.TW");
+        System.out.println(stock2.getQuote()); 
     }
 }
