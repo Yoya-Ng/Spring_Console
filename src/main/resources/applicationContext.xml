@@ -9,10 +9,12 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
     <bean id="userDAO" class="login.spring.beans.UserDAO" scope="singleton" />
+    <!--
     <bean id="login" class="login.spring.beans.Login" scope="singleton" >
         <property name="userDAO" ref="userDAO" />
     </bean>
-    
+    -->
+    <bean id="login" class="login.spring.beans.Login" autowire="byType" />
     
     <bean id="hello" class="hello.spring.beans.HelloSpring" scope="singleton" />
     <bean id="lotto" class="hello.spring.beans.LottoSpring" scope="singleton">
