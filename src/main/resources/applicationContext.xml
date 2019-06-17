@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <bean id="hello" class="hello.spring.beans.HelloSpring" scope="singleton" />
+    <bean id="lotto" class="hello.spring.beans.LottoSpring" scope="singleton">
+        <constructor-arg value="50" index="0"/>
+    </bean>
+    <bean id="lotto2" class="hello.spring.beans.LottoSpring" scope="singleton">
+        <property name="count" value="10" />
+    </bean>
+    <bean id="lotto3" class="hello.spring.beans.LottoSpring" scope="singleton">
+        <constructor-arg value="2" name="a"/>
+        <constructor-arg value="3" name="b"/>
+    </bean>
+    <bean id="lotto4" class="hello.spring.beans.LottoSpring" scope="singleton" 
+          init-method="init"
+    />
+    <bean id="fastfood" class="hello.spring.beans.Fastfood" scope="singleton">
+        <constructor-arg name="foodSet">
+            <set>
+                <value>apple</value>
+                <value>apple</value>
+                <value>banna</value>
+            </set>
+        </constructor-arg>
+    </bean>
+    <bean id="fastfood2" class="hello.spring.beans.Fastfood" scope="singleton">
+        <constructor-arg name="drinkList">
+            <list>
+                <value>apple</value>
+                <value>apple</value>
+                <value>banna</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    <bean id="fastfood3" class="hello.spring.beans.Fastfood" scope="singleton">
+        <constructor-arg name="packageMap">
+            <map>
+                <entry key="A" value="apple" />
+                <entry key="B" value="banna" />
+            </map>
+        </constructor-arg>
+    </bean>
+    <bean id="fastfood4" class="hello.spring.beans.Fastfood" scope="singleton">
+        <constructor-arg name="foodSet">
+            <set>
+                <value>apple</value>
+                <value>apple</value>
+                <value>banna</value>
+            </set>
+        </constructor-arg>
+        <constructor-arg name="drinkList">
+            <list>
+                <value>apple</value>
+                <value>apple</value>
+                <value>banna</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg name="packageMap">
+            <map>
+                <entry key="A" value="apple" />
+                <entry key="B" value="banna" />
+            </map>
+        </constructor-arg>
+    </bean>
+</beans>
+
