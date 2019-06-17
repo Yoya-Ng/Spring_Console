@@ -9,7 +9,7 @@ public class StockDao implements IStockDao {
     public double get(String symbol) {
         double price = 0;
         try {
-            Stock stock = YahooFinance.get("TWDJPY=x");
+            Stock stock = YahooFinance.get(symbol);
             price = stock.getQuote().getPrice().doubleValue();
         } catch (Exception e) {
         }

@@ -5,17 +5,22 @@
  */
 package exchange.spring.test;
 
+import exchange.spring.beans.IFinance;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 /**
  *
  * @author Tian
  */
 public class ExchangeJFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ExchangeJFrame
-     */
+    IFinance finance;
     public ExchangeJFrame() {
         initComponents();
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        finance = (IFinance) context.getBean("finance");
+        
     }
 
     /**
@@ -40,12 +45,18 @@ public class ExchangeJFrame extends javax.swing.JFrame {
         edit_input.setText("0");
 
         jButton1.setText("換匯");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         select_from.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        select_from.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TWD", "USD", "JPA", "CND", "" }));
+        select_from.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TWD", "USD", "JPY", "EUR", "CNY" }));
 
         select_to.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        select_to.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TWD", "USD", "JPA", "CND", "" }));
+        select_to.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TWD", "USD", "JPY", "EUR", "CNY" }));
+        select_to.setSelectedIndex(1);
 
         edit_output.setEditable(false);
         edit_output.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
@@ -87,6 +98,12 @@ public class ExchangeJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       double cash = Double.parseDouble(edit_input.getText());
+        String symbol = "" + select_from.getSelectedItem() + select_to.getSelectedItem() + "=x";
+        edit_output.setText(finance.exchange(symbol, cash) + "");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -74,6 +74,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x63db;&#x532f;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="select_from">
       <Properties>
@@ -84,9 +87,9 @@
           <StringArray count="5">
             <StringItem index="0" value="TWD"/>
             <StringItem index="1" value="USD"/>
-            <StringItem index="2" value="JPA"/>
-            <StringItem index="3" value="CND"/>
-            <StringItem index="4" value=""/>
+            <StringItem index="2" value="JPY"/>
+            <StringItem index="3" value="EUR"/>
+            <StringItem index="4" value="CNY"/>
           </StringArray>
         </Property>
       </Properties>
@@ -103,11 +106,12 @@
           <StringArray count="5">
             <StringItem index="0" value="TWD"/>
             <StringItem index="1" value="USD"/>
-            <StringItem index="2" value="JPA"/>
-            <StringItem index="3" value="CND"/>
-            <StringItem index="4" value=""/>
+            <StringItem index="2" value="JPY"/>
+            <StringItem index="3" value="EUR"/>
+            <StringItem index="4" value="CNY"/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="1"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
