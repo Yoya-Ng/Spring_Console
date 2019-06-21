@@ -1,6 +1,6 @@
 package user.spring.aop.service;
 
-public class UserService implements IUserService{
+public class UserService implements IUserService {
 
     @Override
     public void save() {
@@ -9,7 +9,8 @@ public class UserService implements IUserService{
 
     @Override
     public void update(String name) {
-        System.out.println("修改：" + name);
+        System.out.println("修改:" + name);
+        throw new RuntimeException("我是個錯誤");
     }
 
     @Override

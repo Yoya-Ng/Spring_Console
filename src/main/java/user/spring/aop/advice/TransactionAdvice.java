@@ -11,6 +11,15 @@ public class TransactionAdvice {
         }
     }
     public void after(JoinPoint joinPoint) {
-        System.out.println("後置通知被執行");
+        System.out.println("後置通知被執行(不論是否有錯誤發生)");
     }
+    
+    public void after_returning(JoinPoint joinPoint) {
+        System.out.println("後置通知被執行(沒錯誤發生)");
+    }
+    
+    public void after_throwing(JoinPoint joinPoint) {
+        System.out.println("後置通知被執行(有錯誤發生)");
+    }
+    
 }
