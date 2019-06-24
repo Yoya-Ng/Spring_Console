@@ -48,7 +48,11 @@ public class CRUD_1 {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd a hh:mm:ss E");
             sdf.format(x.get("time"));
             System.out.println(sdf.format(x.get("time")));
-
         });
+        
+        sql = "SELECT author FROM SSH.BOOK WHERE id = ?";
+        String author = jt.queryForObject(sql, new Object[]{1}, String.class);
+        System.out.println(author);
+        
     }
 }
