@@ -1,17 +1,26 @@
 package book.jdbc.test;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
-import javax.activation.DataSource;
+import book.jdbc.dao.IBookDao;
+import static java.lang.System.out;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class CRUD_2 {
 
-    public static void main(String[] args) {
+    static IBookDao dao;
 
-// 如何裡用 Brans 完成
-        System.out.println(dataSource.getJdbcUrl());
-        
+    public static void main(String[] args) {
+        ApplicationContext context
+                = new ClassPathXmlApplicationContext("applicationContext_jdbc.xml");
+        dao = (IBookDao) context.getBean("bookDao");
+        read();
     }
 
+    public static void create() {
+        dao.insert("JavaWeb", "Vincent", 780);
+    }
+
+    public static void read() {
+        out.print(dao.query());
+    }
 }
