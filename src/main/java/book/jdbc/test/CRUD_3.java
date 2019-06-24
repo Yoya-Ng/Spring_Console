@@ -13,6 +13,7 @@ public class CRUD_3 {
         ApplicationContext context 
                 = new ClassPathXmlApplicationContext("applicationContext_jdbc.xml"); 
         dao = (IBookDaoMapper) context.getBean("bookDaoMapper"); 
+        System.out.println(get()); 
         read(); 
     } 
      
@@ -20,6 +21,10 @@ public class CRUD_3 {
         List<Book> list = dao.query(); 
         out.println(list.size()); 
         out.println(list); 
+    } 
+     
+    public static Book get() { 
+        return dao.get(3); 
     } 
      
 } 
