@@ -27,9 +27,9 @@ public class Fund_CRUD {
      
     public static void main(String[] args) { 
          
-//        create("A", "高科技"); 
-//        create("B", "高收益"); 
-//        create("C", "高股息"); 
+        create("A", "高科技"); 
+        create("B", "高收益"); 
+        create("C", "高股息"); 
          
         addStock("A", "2330", "3008", "2303"); 
         addTrader("A", "John", "Mary"); 
